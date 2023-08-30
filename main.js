@@ -16,14 +16,22 @@ const clearCanvas = () => {
 }
 
 const handlePos = () => {
-    if ((posX + imageW + velocidadeX * xMultiplier) >= width) 
-        xMultiplier = -1
-    if ((posY + imageH + velocidadeY * yMultiplier) >= height) 
+    if ((posX + imageW + velocidadeX * xMultiplier) >= width) {
+        xMultiplier = -1    
+        defaultColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    }
+    if ((posY + imageH + velocidadeY * yMultiplier) >= height) {
         yMultiplier = -1
-    if (posX + velocidadeX * xMultiplier <= 0) 
+        defaultColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    }
+    if (posX + velocidadeX * xMultiplier <= 0) {
         xMultiplier = 1
-    if (posY + velocidadeY * yMultiplier <= 0) 
+        defaultColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    }
+    if (posY + velocidadeY * yMultiplier <= 0) {
         yMultiplier = 1 
+        defaultColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    }
     posX += velocidadeX * xMultiplier
     posY += velocidadeY * yMultiplier
 }
